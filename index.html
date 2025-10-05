@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenneth | Web Developer</title>
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #ff6584;
+      --dark: #1a1a1a;
+      --light: #f9f9f9;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(to right, #6c63ff, #836fff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .project h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- CERTIFICATES ---------- */
+    #certificates {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin-top: 3rem;
+    }
+
+    .certificate {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .certificate img {
+      width: 100px;
+      margin-bottom: 0.5rem;
+    }
+
+    .certificate h3 {
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .certificate p {
+      margin-bottom: 0.5rem;
+    }
+
+    .certificate a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .certificate a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- CONTACT ---------- */
+    #contact {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    #contact h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      margin: 0.3rem 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0.5rem;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      color: #ccc;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">KennethDev</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="https://via.placeholder.com/160" alt="Kenneth's photo">
+    <h1>Hi, I'm Kenneth 👋</h1>
+    <p>A passionate Web Developer crafting modern, responsive websites and web apps.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm Kenneth, a self-taught web developer who loves turning ideas into digital experiences. I specialize in front-end development using HTML, CSS, JavaScript, and modern frameworks like React. My goal is to build websites that are fast, beautiful, and accessible to everyone.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>food restaurant</h3>
+      <p>A  responsive web platform that showcase food they are selling.</p>
+      <a href="resturant.html">🔗 View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>retail</h3>
+      <p>This portfolio showcases a responsive e-commerce website built as a web development project.</p>
+      <a href="retail.html">🔗 View Project</a>
+    </div>
+    <div class="project">
+      <h3>career choices</h3>
+      <p>this site shows different career for stundents to choose.</p>
+      <a href="career.html">🔗 View Project</a>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+
+    <!-- 🏆 When ready, replace below with your real info -->
+    <div class="certificate">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
+      <h3>Google Certificate Title Here</h3>
+      <p>Issued by <strong>Google / Coursera</strong></p>
+      <a href="#" target="_blank">🎓 View Certificate</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p>📧 Email: <a href="mailto:kenneth@example.com" style="color:#fff;text-decoration:underline;">kenneth@example.com</a></p>
+      <p>📱 Phone: +27 60 123 4567</p>
+      <p>📍 Location: Mpumalanga, South Africa</p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://github.com/" target="_blank">🐙</a>
+      <a href="https://linkedin.com" target="_blank">💼</a>
+      <a href="https://twitter.com" target="_blank">🐦</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Kenneth | Built with ❤️ and clean code</p>
+  </footer>
+
+</body>
+</html>
