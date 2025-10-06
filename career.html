@@ -59,24 +59,49 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
 
 /* Responsive */
 @media(max-width:768px){
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .nav a {
-    margin: 0.3rem 0 0 0;
-  }
   .hero h1 {font-size:1.8rem;}
   .hero p {font-size:1rem;}
-  #searchBar {flex-direction:column;}
-  #searchBar input, #searchBar button {border-radius:8px; width:100%; margin:0.3rem 0;}
   .career img {height:140px;}
+  #searchBar {flex-direction:column;}
+  #searchBar input, #searchBar button {border-radius:8px;width:100%;margin:0.3rem 0;}
 }
 
+/* Mobile Header & Search: Horizontal compact */
 @media(max-width:480px){
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+  }
+  .logo {font-size:1.2rem;}
+  .nav a {margin-left:0.5rem;font-size:0.9rem;}
+
+  /* Hero */
   .hero h1 {font-size:1.5rem;}
   .hero p {font-size:0.95rem;}
+
+  /* Search bar inline and smaller */
+  #searchBar {
+    max-width:100%;
+    display:flex;
+    flex-direction:row;
+    gap:0.3rem;
+    margin:0.5rem 0;
+  }
+  #searchBar input {
+    flex:1;
+    padding:0.4rem 0.6rem;
+    font-size:0.9rem;
+    border-radius:6px 0 0 6px;
+  }
+  #searchBar button {
+    padding:0.4rem 0.6rem;
+    font-size:0.9rem;
+    border-radius:0 6px 6px 0;
+  }
+
   .career img {height:120px;}
   .career-grid {gap:0.7rem;padding:0.5rem;}
 }
