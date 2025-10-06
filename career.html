@@ -20,22 +20,65 @@ body {font-family:Arial, sans-serif;background:var(--bg);color:var(--text);}
 a {text-decoration:none;color:inherit;}
 
 /* Header */
-header {background:var(--card);box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:10;}
-.nav {max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem;flex-wrap:wrap;}
-.nav a {margin-left:1rem;font-weight:600;transition:0.3s;}
-.nav a:hover {color:var(--primary);}
-.logo {font-weight:700;font-size:1.5rem;color:var(--primary);white-space:nowrap;}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  flex-wrap: nowrap;
+  background: var(--card);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  justify-content: center;
+  overflow-x: auto; /* scroll if too long */
+}
+.nav-links a {
+  flex-shrink: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+.nav-links a:hover { color: var(--primary); }
+.search-container {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+.search-container input {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid #ccc;
+  font-size: 0.85rem;
+}
+.search-container button {
+  padding: 0.3rem 0.5rem;
+  border-radius: 0 6px 6px 0;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.search-container button:hover { background: var(--accent); }
 
 /* Hero */
 .hero {text-align:center;padding:3rem 1rem;background:linear-gradient(to right,#6c63ff,#836fff);color:white;}
 .hero h1 {font-size:2rem;margin-bottom:0.5rem;}
 .hero p {margin-bottom:1rem;font-size:1.1rem;}
-
-/* Search */
-#searchBar {max-width:400px;margin:1rem auto;display:flex;flex-wrap:wrap;}
-#searchBar input {flex:1;padding:0.5rem 1rem;border-radius:8px 0 0 8px;border:1px solid #ccc;font-size:1rem;min-width:150px;}
-#searchBar button {padding:0.5rem 1rem;border:none;background:var(--primary);color:white;border-radius:0 8px 8px 0;font-weight:600;cursor:pointer;transition:0.3s;margin-top:0;}
-#searchBar button:hover {background:var(--accent);}
 
 /* Career Grid */
 .career-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:1rem;}
@@ -62,42 +105,8 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
   .hero h1 {font-size:1.8rem;}
   .hero p {font-size:1rem;}
   .career img {height:140px;}
-  #searchBar {flex-direction:column;}
-  #searchBar input, #searchBar button {border-radius:8px;width:100%;margin:0.3rem 0;}
 }
-
-/* Mobile Header & Search: fully horizontal compact */
 @media(max-width:480px){
-  .nav {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0.8rem;
-  }
-  .logo {font-size:1rem;}
-  .nav a {margin-left:0.3rem;font-size:0.85rem;white-space:nowrap;}
-
-  /* Search bar inline and smaller */
-  #searchBar {
-    max-width:45%;
-    display:flex;
-    flex-direction:row;
-    gap:0.25rem;
-    margin:0;
-  }
-  #searchBar input {
-    flex:1 1 auto;
-    padding:0.3rem 0.5rem;
-    font-size:0.85rem;
-    border-radius:6px 0 0 6px;
-  }
-  #searchBar button {
-    flex-shrink:0;
-    padding:0.3rem 0.5rem;
-    font-size:0.85rem;
-    border-radius:0 6px 6px 0;
-  }
-
   .hero h1 {font-size:1.5rem;}
   .hero p {font-size:0.95rem;}
   .career img {height:120px;}
@@ -108,14 +117,14 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
 <body>
 
 <header>
-  <div class="nav">
+  <div class="nav-container">
     <div class="logo">Kenneth's Career Guide</div>
-    <div>
+    <div class="nav-links">
       <a href="#careers">Careers</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
-    <div id="searchBar">
+    <div class="search-container">
       <input type="text" id="searchInput" placeholder="Search careers...">
       <button onclick="searchCareers()">Search</button>
     </div>
@@ -130,7 +139,6 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
 <section id="careers">
   <h2 style="text-align:center;color:var(--primary);margin-bottom:1rem;">Career Paths</h2>
 
-  <!-- Career Grid -->
   <div class="career-grid" id="careerGrid">
     <div class="career" onclick="openModal('Web Developer', 'Build websites and applications using coding languages like HTML, CSS, and JavaScript.')">
       <img src="https://images.unsplash.com/photo-1581091870628-ecf6c6c4c820?auto=format&fit=crop&w=500&q=60" alt="Web Developer">
