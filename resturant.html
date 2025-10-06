@@ -18,7 +18,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);position:relative;overflow-x:hidden;}
 header{position:sticky;top:0;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:1rem;z-index:10;}
-.nav{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
+.nav{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 .nav a{text-decoration:none;margin-left:1rem;color:var(--text);font-weight:600;}
 .nav a:hover{color:var(--primary);}
 .cta{background:var(--primary);color:white;padding:0.5rem 1rem;border-radius:999px;text-decoration:none;font-weight:700;transition:0.3s;}
@@ -80,6 +80,33 @@ footer{text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
   0% { transform: translateY(100vh) rotate(0deg); opacity:0.5;}
   50% { opacity:1;}
   100% { transform: translateY(-100vh) rotate(360deg); opacity:0;}
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 992px) {
+  .nav { flex-wrap: wrap; justify-content: space-between; }
+  .nav a, .cta { margin: 0.3rem 0.5rem; }
+  .hero img { width: 150px; height: 150px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 0.95rem; }
+  .hero .btns a { margin: 0.3rem; padding: 0.4rem 0.8rem; }
+  .menu-grid { grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:0.8rem; }
+  .dish img { height: 120px; }
+  .gallery { grid-template-columns: repeat(2,1fr); gap:4px; }
+  .tile img { height:auto; }
+}
+
+@media (max-width: 576px) {
+  .nav { flex-direction: column; align-items: center; gap:0.5rem; }
+  .nav a, .cta { margin: 0.2rem; font-size:0.9rem; padding:0.4rem 0.8rem; }
+  .hero img { width: 120px; height: 120px; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero p { font-size: 0.85rem; }
+  .hero .btns a { display:block; margin: 0.3rem auto; width:80%; text-align:center; }
+  .menu-grid { grid-template-columns: 1fr; gap:0.6rem; }
+  .dish img { height: 100px; }
+  .gallery { grid-template-columns: 1fr; gap:3px; }
+  .tile img { height:auto; }
 }
 </style>
 </head>
@@ -180,7 +207,6 @@ const imageLinks = [
   "https://images.unsplash.com/photo-1562967916-eb82221dfb37",
   "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
 ];
-
 const tiles = document.querySelectorAll('.tile img');
 tiles.forEach((img)=>{
   const rand = Math.floor(Math.random() * imageLinks.length);
@@ -190,12 +216,11 @@ tiles.forEach((img)=>{
 // Floating food icons (chips, sausages, sushi, pizza)
 const floatingContainer = document.getElementById('floating-food');
 const floatingImages = [
-  "https://cdn-icons-png.flaticon.com/32/3078/3078154.png",  // fries/chips
-  "https://cdn-icons-png.flaticon.com/32/1046/1046784.png", // sausages
-  "https://cdn-icons-png.flaticon.com/32/3075/3075977.png", // sushi
-  "https://cdn-icons-png.flaticon.com/32/616/616408.png"    // pizza
+  "https://cdn-icons-png.flaticon.com/32/3078/3078154.png",
+  "https://cdn-icons-png.flaticon.com/32/1046/1046784.png",
+  "https://cdn-icons-png.flaticon.com/32/3075/3075977.png",
+  "https://cdn-icons-png.flaticon.com/32/616/616408.png"
 ];
-
 for(let i=0;i<30;i++){
   const icon = document.createElement('img');
   icon.src = floatingImages[Math.floor(Math.random()*floatingImages.length)];
