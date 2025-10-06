@@ -59,12 +59,18 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
 
 /* Responsive */
 @media(max-width:768px){
-  .nav {flex-direction:column;align-items:flex-start;}
-  .nav a {margin:0.5rem 0 0 0;}
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav a {
+    margin: 0.3rem 0 0 0;
+  }
   .hero h1 {font-size:1.8rem;}
   .hero p {font-size:1rem;}
   #searchBar {flex-direction:column;}
-  #searchBar input, #searchBar button {border-radius:8px;margin:0.25rem 0;}
+  #searchBar input, #searchBar button {border-radius:8px; width:100%; margin:0.3rem 0;}
   .career img {height:140px;}
 }
 
