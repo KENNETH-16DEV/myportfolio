@@ -24,7 +24,7 @@ header {background:var(--card);box-shadow:0 2px 10px rgba(0,0,0,0.05);position:s
 .nav {max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem;flex-wrap:wrap;}
 .nav a {margin-left:1rem;font-weight:600;transition:0.3s;}
 .nav a:hover {color:var(--primary);}
-.logo {font-weight:700;font-size:1.5rem;color:var(--primary);}
+.logo {font-weight:700;font-size:1.5rem;color:var(--primary);white-space:nowrap;}
 
 /* Hero */
 .hero {text-align:center;padding:3rem 1rem;background:linear-gradient(to right,#6c63ff,#836fff);color:white;}
@@ -66,42 +66,40 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
   #searchBar input, #searchBar button {border-radius:8px;width:100%;margin:0.3rem 0;}
 }
 
-/* Mobile Header & Search: Horizontal compact */
+/* Mobile Header & Search: fully horizontal compact */
 @media(max-width:480px){
   .nav {
-    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
   }
-  .logo {font-size:1.2rem;}
-  .nav a {margin-left:0.5rem;font-size:0.9rem;}
-
-  /* Hero */
-  .hero h1 {font-size:1.5rem;}
-  .hero p {font-size:0.95rem;}
+  .logo {font-size:1rem;}
+  .nav a {margin-left:0.3rem;font-size:0.85rem;white-space:nowrap;}
 
   /* Search bar inline and smaller */
   #searchBar {
-    max-width:100%;
+    max-width:45%;
     display:flex;
     flex-direction:row;
-    gap:0.3rem;
-    margin:0.5rem 0;
+    gap:0.25rem;
+    margin:0;
   }
   #searchBar input {
-    flex:1;
-    padding:0.4rem 0.6rem;
-    font-size:0.9rem;
+    flex:1 1 auto;
+    padding:0.3rem 0.5rem;
+    font-size:0.85rem;
     border-radius:6px 0 0 6px;
   }
   #searchBar button {
-    padding:0.4rem 0.6rem;
-    font-size:0.9rem;
+    flex-shrink:0;
+    padding:0.3rem 0.5rem;
+    font-size:0.85rem;
     border-radius:0 6px 6px 0;
   }
 
+  .hero h1 {font-size:1.5rem;}
+  .hero p {font-size:0.95rem;}
   .career img {height:120px;}
   .career-grid {gap:0.7rem;padding:0.5rem;}
 }
@@ -117,6 +115,10 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
+    <div id="searchBar">
+      <input type="text" id="searchInput" placeholder="Search careers...">
+      <button onclick="searchCareers()">Search</button>
+    </div>
   </div>
 </header>
 
@@ -127,12 +129,6 @@ footer {text-align:center;padding:1rem;margin-top:2rem;color:var(--muted);}
 
 <section id="careers">
   <h2 style="text-align:center;color:var(--primary);margin-bottom:1rem;">Career Paths</h2>
-
-  <!-- Search -->
-  <div id="searchBar">
-    <input type="text" id="searchInput" placeholder="Search careers...">
-    <button onclick="searchCareers()">Search</button>
-  </div>
 
   <!-- Career Grid -->
   <div class="career-grid" id="careerGrid">
